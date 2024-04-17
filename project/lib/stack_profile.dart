@@ -7,11 +7,12 @@ class StackDemo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: const Color.fromARGB(255, 160, 206, 244),
         title: Row(
           children: [Image.asset('../assets/Vector.png'), Text('INNY')],
         ),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back), // เลือก Icon ตามที่ต้องการ
+          icon: Icon(Icons.arrow_back_ios), // เลือก Icon ตามที่ต้องการ
           onPressed: () {
             // เพิ่มโค้ดที่ต้องการให้ทำงานเมื่อกด leading action นี้
           },
@@ -19,34 +20,42 @@ class StackDemo extends StatelessWidget {
         actions: [
           IconButton(
             onPressed: () {},
-            icon: Icon(Icons.settings),
+            icon: Icon(Icons.settings_outlined),
           )
         ],
       ),
       body: Stack(
         alignment: Alignment.center,
-        children: <Widget>[
+        children: [
           // background image and bottom contents
           Column(
-            children: <Widget>[
+            children: [
               Container(
-                height: 150.0,
+                height: 100.0,
                 width: MediaQuery.of(context).size.width,
                 color: Colors.orange,
                 child: Image.asset(
                   '../assets/profile.png',
-                  fit: BoxFit
-                      .fill, // ใช้ BoxFit.cover เพื่อให้รูปภาพเต็มพื้นที่และไม่มีการตัดข้อมูล
+                  fit: BoxFit.fill,
                 ),
               ),
               Container(
                 height: 50,
-                color: Color.fromARGB(255, 213, 225, 214),
-                child: Row(
+                child: const Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    Icon(Icons.copy_sharp),
-                    Text('แก้ไขโปรไฟล์'),
+                    Icon(
+                      Icons.edit,
+                      size: 15,
+                      color: Color((0xFF02C275)),
+                    ),
+                    Text(
+                      'แก้ไขโปรไฟล์        ',
+                      style: TextStyle(
+                        fontSize: 12,
+                        color: Color(0xFF02C275),
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -57,34 +66,74 @@ class StackDemo extends StatelessWidget {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text('Binny Bun'),
+                        Text(
+                          'Binny Bun',
+                          style: TextStyle(
+                            fontSize: 32,
+                          ),
+                        ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text('@binny.bin'),
-                            Icon(Icons.copy_sharp)
+                            Text('@binny.bin '),
+                            Icon(
+                              Icons.copy_sharp,
+                              size: 15,
+                            )
                           ],
                         ),
                         Container(
-                          child: Row(
-                            children: [
-                              Expanded(
-                                child: Column(
-                                  children: [
-                                    Text('15'),
-                                    Text('กำลังติดตาม'),
-                                  ],
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                border: Border.all(
+                                  color:
+                                      Colors.black, // เปลี่ยนสีตามที่คุณต้องการ
+                                  width: 1.0, // กำหนดความหนาของเส้น Border
                                 ),
                               ),
-                              Expanded(
-                                child: Column(
-                                  children: [
-                                    Text('4'),
-                                    Text('ผู้ติดตาม'),
-                                  ],
-                                ),
+                              child: Row(
+                                children: [
+                                  Expanded(
+                                    child: Column(
+                                      children: [
+                                        Text(
+                                          '15',
+                                          style: TextStyle(
+                                            fontSize: 24,
+                                          ),
+                                        ),
+                                        Text(
+                                          'กำลังติดตาม',
+                                          style: TextStyle(
+                                              fontSize: 16,
+                                              color: Color(0xFF02C275)),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  Expanded(
+                                    child: Column(
+                                      children: [
+                                        Text(
+                                          '4',
+                                          style: TextStyle(
+                                            fontSize: 24,
+                                          ),
+                                        ),
+                                        Text(
+                                          'ผู้ติดตาม',
+                                          style: TextStyle(
+                                              fontSize: 16,
+                                              color: Color(0xFF02C275)),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
                               ),
-                            ],
+                            ),
                           ),
                         )
                       ],
@@ -93,35 +142,70 @@ class StackDemo extends StatelessWidget {
                 ),
               ),
               Expanded(
-                child: Container(
-                  color: const Color.fromARGB(255, 217, 24, 24),
-                  child: Center(
-                    child: Column(
-                      children: [
-                        Expanded(
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text('สถิติการแยกขยะของฉัน'),
-                              Text('เดือนมีนาคม')
-                            ],
-                          ),
-                        ),
-                        Expanded(
-                            child: Column(
-                          children: [
-                            Expanded(
-                              child: Row(
-                                children: [
-                                  Text('365'),
-                                  Text('+2.4%'),
-                                ],
-                              ),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: Colors.black, // เปลี่ยนสีตามที่คุณต้องการ
+                        width: 1.0, // กำหนดความหนาของเส้น Border
+                      ),
+                    ),
+                    child: Center(
+                      child: Column(
+                        children: [
+                          Expanded(
+                            flex: 1,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  'สถิติการแยกขยะของฉัน',
+                                  style: TextStyle(
+                                    fontSize: 20,
+                                  ),
+                                ),
+                                Text(
+                                  'เดือนมีนาคม',
+                                  style: TextStyle(
+                                    fontSize: 13,
+                                  ),
+                                )
+                              ],
                             ),
-                            Expanded(child: Image.asset('../assets/Stats.png'))
-                          ],
-                        )),
-                      ],
+                          ),
+                          Expanded(
+                              flex: 3,
+                              child: Column(
+                                children: [
+                                  Expanded(
+                                    child: Row(
+                                      children: [
+                                        Text(
+                                          '365',
+                                          style: TextStyle(
+                                            fontSize: 48,
+                                          ),
+                                        ),
+                                        Text(
+                                          '+2.4%',
+                                          style: TextStyle(
+                                            fontSize: 12,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  Expanded(
+                                      flex: 1,
+                                      child: Image.asset(
+                                        '../assets/Stats.png',
+                                        fit: BoxFit.fill,
+                                      ))
+                                ],
+                              )),
+                        ],
+                      ),
                     ),
                   ),
                 ),
@@ -132,13 +216,22 @@ class StackDemo extends StatelessWidget {
                     child: Column(
                       children: [
                         Expanded(
+                          flex: 2,
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Expanded(
                                 child: Column(
                                   children: [
-                                    Text('พลาสติกใส PET'),
+                                    Row(
+                                      children: [
+                                        Icon(
+                                          Icons.circle,
+                                          size: 12,
+                                        ),
+                                        Text('พลาสติกใส PET'),
+                                      ],
+                                    ),
                                     Text('68 kg'),
                                   ],
                                 ),
@@ -146,7 +239,15 @@ class StackDemo extends StatelessWidget {
                               Expanded(
                                 child: Column(
                                   children: [
-                                    Text('กระป๋องอะลูมิเนียม'),
+                                    Row(
+                                      children: [
+                                        Icon(
+                                          Icons.circle,
+                                          size: 12,
+                                        ),
+                                        Text('กระป๋องอะลูมิเนียม'),
+                                      ],
+                                    ),
                                     Text('120 kg'),
                                   ],
                                 ),
@@ -155,6 +256,7 @@ class StackDemo extends StatelessWidget {
                           ),
                         ),
                         Expanded(
+                          flex: 3,
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
@@ -164,7 +266,15 @@ class StackDemo extends StatelessWidget {
                                   Expanded(
                                     child: Column(
                                       children: [
-                                        Text('กล่องเครื่องดื่ม UHT'),
+                                        Row(
+                                          children: [
+                                            Icon(
+                                              Icons.circle,
+                                              size: 12,
+                                            ),
+                                            Text('กล่องเครื่องดื่ม UHT'),
+                                          ],
+                                        ),
                                         Text('48'),
                                       ],
                                     ),
@@ -172,7 +282,15 @@ class StackDemo extends StatelessWidget {
                                   Expanded(
                                     child: Column(
                                       children: [
-                                        Text('น้ำมันพืชใช้แล้ว'),
+                                                                                Row(
+                                          children: [
+                                            Icon(
+                                              Icons.circle,
+                                              size: 12,
+                                            ),
+                                            Text('น้ำมันพืชใช้แล้ว'),
+                                          ],
+                                        ),
                                         Text('150 kg'),
                                       ],
                                     ),
@@ -189,13 +307,13 @@ class StackDemo extends StatelessWidget {
           ),
           // Profile image
           Positioned(
-            top: 100.0,
+            top: -15,
             child: Container(
-              height: 100.0,
-              width: 100.0,
+              height: 200.0,
+              width: 200.0,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                color: Colors.green,
+                color: Colors.transparent,
               ),
               child: Center(
                 child: Image.asset(
